@@ -24,12 +24,12 @@ abstract class WordRoomDatabase : RoomDatabase() {
         private var INSTANCE: WordRoomDatabase? = null
 
         fun getDatabase(context: Context): WordRoomDatabase {
-            var tempInstance = INSTANCE
+            val tempInstance = INSTANCE
             /*if (tempInstance != null) {
                 return tempInstance
             }*/
             tempInstance?.apply {
-                this
+                return this
             }
             synchronized(this) {
                 val instance = Room.databaseBuilder(
