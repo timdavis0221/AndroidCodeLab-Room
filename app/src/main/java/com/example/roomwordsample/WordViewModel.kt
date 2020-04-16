@@ -9,7 +9,9 @@ import kotlinx.coroutines.launch
 
 class WordViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val wordDao : WordDao by lazy { WordRoomDatabase.getDatabase(application).wordDao() }
+    private val wordDao : WordDao by lazy {
+        WordRoomDatabase.getDatabase(application, viewModelScope).wordDao()
+    }
     private val repository : WordRepository by lazy { WordRepository(wordDao) }
 
     // Using LiveData and caching what getAlphabetizedWords returns has several benefits :
