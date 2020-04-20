@@ -28,6 +28,11 @@ class WordListAdapter internal constructor(
         holder.wordItemView.text = current.word
     }
 
+    internal fun setWords(words: List<Word>) {
+        this.words = words
+        notifyDataSetChanged()
+    }
+
     override fun getItemCount() = words.size
 
 }
